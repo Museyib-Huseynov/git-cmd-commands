@@ -78,3 +78,7 @@ git branch --merged
 git branch -d <name of branch>
 git branch -a
 git push origin --delete <name of branch>
+
+//if we have a local repo and we want to push to remote repo
+git remote add origin <remote repo url>
+git push -u origin master
