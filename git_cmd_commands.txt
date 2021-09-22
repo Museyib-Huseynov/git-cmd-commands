@@ -1,0 +1,80 @@
+//checking git version
+git --version         
+
+//set config values
+git config --global user.name "Museyib Huseynov"
+git config --global user.email "museyib.huseynov.dev@gmail.com"
+
+//check config values
+git config --list
+
+//need help?
+git help <verb> or git <verb> --help
+git help config or git config --help
+
+//initialize a repository from existing code
+git init
+
+//delete repository
+rmdir /s .git
+
+//before first commit
+git status
+
+//create .gitignore file with 2 ways
+1) type nul > .gitignore    (create empty file)
+2) copy con .gitignore      (create overwritten file)
+
+//add files to staging area
+git add -A  
+
+//remove files from staging area
+git reset
+
+//first commit
+1) git add -A
+2) git commit -m "Initial commit"
+3) git status
+4) git log
+
+//cloning a remote repo
+git clone <url> <where to clone>
+
+//viewing info about remote repo
+git remote -v
+git branch -a
+
+//pushing chnages
+1) commit changes as usual
+git diff
+git status
+git add -A
+git commit -m "Modified version"
+
+2)then push
+git pull origin master
+git push origin master
+
+//create a branch for desired feature
+git branch <name>
+git checkout <name>
+
+//list all branches
+git branch
+ 
+//after commit push branch to remote
+git push -u origin <name of brnach>
+git branch -a
+
+//merge a branch
+git checkout master
+git pull origin master
+git branch --merged
+git merge <name of branch>
+git push origin master
+
+//deleting a branch
+git branch --merged
+git branch -d <name of branch>
+git branch -a
+git push origin --delete <name of branch>
