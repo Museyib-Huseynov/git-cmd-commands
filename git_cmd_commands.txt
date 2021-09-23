@@ -83,21 +83,22 @@ git push origin --delete <name of branch>
 git remote add origin <remote repo url>
 git push -u origin master
 
-//for undo (if you have changed the file, but wanna reset git.status)
+//for undo (if you have changed the file, and you are in working directory)
 git checkout <name of file>
 
 //after commit if you want to change message
 git commit --amend -m "your message"
+
+//if we have something in staging area, but we want it to be part of last commit, not the new one
 git commit --amend  (change something after commit)
 
+//show files that has been changed within commit
 git log --stat
 
-//cherry picking
-git log
-git checkout <branch name>
-git cherry-pick <hash>
-git checkout master
-git log
+//cherry picking - move commit from one branch to other branch using hash 
+//cherry pick creates a new commit based off of our original, but does not delete the original one after creating new commit
+  
+//delete original commit (3 ways)
 git reset --soft <hash that you want to save>  (but keep changes in staging area)
 git reset <hash that you want to save> 		(but keep changes in working directory)
 git reset --hard <hash that you want to save>  (does not keep any changes)
@@ -106,12 +107,75 @@ git reset --hard <hash that you want to save>  (does not keep any changes)
 git clean -df (d-gets rid of any untracked directories, f-gets rid of any untracked files)
 
 //to see operations you have made
+//if you accidentally got rid of files, get hash of operation
 git reflog
-//go the operation usign hash from git reflog
-git checkout <hash>
+//bring the operation back  usign hash 
+git checkout <hash>  (now commits are on HEAD detached branch, so we need to create new one)
+git branch <new branch>
+git checkout master
+git branch  (changes will be placed in a new branch automotically)
+//to check if we have changed files in a new branch 
+git checkout <new branch>
+git log
 
 
+//if you want to undo some commits, but other people have already pulled those changes
+//git revert - creates new commits reverse the effect of some earlier commits, 
+//this way you don't rewrite any history
+git log     (grab the hash)
+git revert <hash>
 
+//you can see the difference between two commits using their hashes
+git log         (grab hash)
+git diff <hash1> <hash2>
+
+------------------------------
+
+// git stash - is great when you have some changes, but you are not ready to commit
+// git stash - will save them in a temporary place and 
+//you can go do whatever you want and come back to those changes later on
+git stash save "your message"
+
+//to get stash list
+git stash list
+
+//to bring stash back (2 ways)
+git stash list  (grab stash)
+1)git stash apply <grabbed stash>   (but it will still be in 'git stash list')
+2)git stash pop         (grabs very first stash in the list and then drop the stash)
+
+//if we want to drop some stash from list
+git stash list      (grab stash)
+git stash drop <grabbed stash>
+
+//get rid of all of the stashes
+git stash clear
+
+
+------------------------------
+
+//after installing diffmerge instead of 'git diff' type
+git difftool
+
+//instead of 'git merge <name of branch>'
+git mergetool
+
+
+------------------------------
+//default (entire working tree)
+git add -A      or      git add --all
+
+//do not stage deleted files
+git add --no-all <directory>/
+
+//only modified and deleted files added to stage, not any untracked files, not new files
+git add -u      or      git add --update
+
+//only add stage what is in current working tree, no upper level
+git add .
+
+//apart from deleted files everything added to stage and only current directory
+git add *
 
 
 
