@@ -82,3 +82,55 @@ git push origin --delete <name of branch>
 //if we have a local repo and we want to push to remote repo
 git remote add origin <remote repo url>
 git push -u origin master
+
+//for undo (if you have changed the file, but wanna reset git.status)
+git checkout <name of file>
+
+//after commit if you want to change message
+git commit --amend -m "your message"
+git commit --amend  (change something after commit)
+
+git log --stat
+
+//cherry picking
+git log
+git checkout <branch name>
+git cherry-pick <hash>
+git checkout master
+git log
+git reset --soft <hash that you want to save>  (but keep changes in staging area)
+git reset <hash that you want to save> 		(but keep changes in working directory)
+git reset --hard <hash that you want to save>  (does not keep any changes)
+
+//to get rid of untracked files
+git clean -df (d-gets rid of any untracked directories, f-gets rid of any untracked files)
+
+//to see operations you have made
+git reflog
+//go the operation usign hash from git reflog
+git checkout <hash>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
