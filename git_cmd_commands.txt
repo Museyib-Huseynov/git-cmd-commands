@@ -63,7 +63,7 @@ git checkout <name>
 git branch
  
 //after commit push branch to remote
-git push -u origin <name of brnach>
+git push -u origin <name of branch>
 git branch -a
 
 //merge a branch
