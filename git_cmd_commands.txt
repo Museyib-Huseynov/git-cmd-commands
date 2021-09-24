@@ -96,8 +96,12 @@ git commit --amend  (change something after commit)
 git log --stat
 
 //cherry picking - move commit from one branch to other branch using hash 
-//cherry pick creates a new commit based off of our original, but does not delete the original one after creating new commit
-  
+//cherry pick creates a new commit based off of our original, 
+//but does not delete the original one after creating new commit
+git log 	(grab hash)
+git checkout <branch name that you want to move your commit>
+git cherry-pick <grabbed hash>
+git checkout <branch name that original commit exist>  
 //delete original commit (3 ways)
 git reset --soft <hash that you want to save>  (but keep changes in staging area)
 git reset <hash that you want to save> 		(but keep changes in working directory)
