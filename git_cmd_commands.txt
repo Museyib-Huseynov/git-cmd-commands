@@ -32,7 +32,11 @@ git add -A
 git reset
 
 //if committed, return to previous commit
-git reset HEAD~1
+1)git reset HEAD~1
+2)git checkout <name of file>
+//or
+git log	(grab the hash)
+git checkout <hash>
 
 //first commit
 1) git add -A
