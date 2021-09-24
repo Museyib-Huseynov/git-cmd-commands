@@ -31,6 +31,9 @@ git add -A
 //remove files from staging area
 git reset
 
+//if committed, return to previous commit
+git reset HEAD~1
+
 //first commit
 1) git add -A
 2) git commit -m "Initial commit"
@@ -56,7 +59,7 @@ git pull origin master
 git push origin master
 
 //create a branch for desired feature
-git branch <name>
+git branch <name>  	or 	git checkout -b <name>
 git checkout <name>
 
 //list all branches
